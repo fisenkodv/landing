@@ -9,7 +9,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 filesToCopy = [
-  { from: './src/scss/fonts', to: './assets/fonts', flatten: true },
+  { from: './src/scss/fontawesome/fonts', to: './assets/fonts', flatten: true },
   { from: './src/*.txt', to: './', flatten: true }
 ];
 
@@ -18,7 +18,7 @@ const config = {
     index: './src/index.ts'
   },
   output: {
-    filename: 'index.[hash].js'
+    filename: 'assets/index.[hash].js'
   },
   module: {
     rules: [
@@ -53,9 +53,11 @@ const config = {
     extensions: ['.ts', '.js', '.json']
   },
   devServer: {
+    contentBase: path.join(__dirname, 'dist'),
     historyApiFallback: true,
     noInfo: true,
-    hot: true
+    hot: true,
+    port: 9000
   },
   performance: {
     hints: false
@@ -66,13 +68,46 @@ const config = {
       inject: 'head',
       template: '!!ejs-compiled-loader!./src/index.ejs',
       data: {
-        ts: new Date().toString(),
-        title: 'Dmitry Fisenko - Software Engineer',
-        name: 'Dmitry Fisenko',
-        position: 'Software Engineer',
-        email: 'fisenkodv@gmail.com',
-        description: 'Dmitry Fisenko',
-        keywords: 'Dmitry Fisenko, developer, software, engineer, USA, NJ, .net, typescript, angular'
+        head: {
+          title: 'Dmitry Fisenko - Software Engineer',
+          meta: {
+            author: 'Dmitry Fisenko',
+            description: 'Dmitry Fisenko',
+            keywords: 'Dmitry Fisenko, developer, software, engineer, USA, NJ, .net, typescript, angular'
+          }
+        },
+        body: {
+          name: 'Dmitry Fisenko',
+          position: 'Software Engineer',
+          email: 'fisenkodv@gmail.com'
+        },
+        contacts: [
+          {
+            class: 'github',
+            title: 'Dmitry Fisenko on GitHub',
+            link: 'https://gitghub.com/fisenkodv'
+          },
+          {
+            class: 'linkedin',
+            title: 'Dmitry Fisenko on LinkedIn',
+            link: 'https://linkedin.com/in/fisenkodv'
+          },
+          {
+            class: 'twitter',
+            title: 'Dmitry Fisenko on Twitter',
+            link: 'https://twitter.com/fisenkodv'
+          },
+          {
+            class: 'facebook',
+            title: 'Dmitry Fisenko on Facebook',
+            link: 'https://facebook.com/fisenkodv'
+          },
+          {
+            class: 'instagram',
+            title: 'Dmitry Fisenko on Instagram',
+            link: 'https://instagram.com/fisenkodv'
+          }
+        ]
       },
       minify: {
         html5: true,
@@ -81,15 +116,15 @@ const config = {
         minifyJS: true,
         removeComments: true,
         collapseWhitespace: true,
-        preserveLineBreaks: true,
+        preserveLineBreaks: false,
         removeEmptyAttributes: true
       }
     }),
     new CopyWebpackPlugin(filesToCopy),
-    new CleanWebpackPlugin(['dist/*.*', 'dist/icons-*', 'dist/assets/']),
+    new CleanWebpackPlugin(['dist/*.*']),
     new MiniCssExtractPlugin({
-      filename: '[name].[hash].css',
-      chunkFilename: '[id].[hash].css'
+      filename: 'assets/[name].[hash].css',
+      chunkFilename: 'assets/[id].[hash].css'
     })
     /*new FaviconsWebpackPlugin({
       logo: './src/assets/favicon.svg',
@@ -121,7 +156,7 @@ module.exports = (env, argv) => {
       .toString()
       .match(/"version": "(\d+\.\d+\.\d+.*?)"/)[1];
 
-  config.output.path = path.resolve(__dirname, argv.output || './dist');
+  config.output.path = path.resolve(__dirname, './dist');
 
   console.log(`Version: ${appVersion}`);
   console.log('Output directory', config.output.path);
@@ -132,12 +167,6 @@ module.exports = (env, argv) => {
     config.devtool = '';
     config.plugins = [
       ...config.plugins,
-      new webpack.DefinePlugin({
-        'process.env': {
-          NODE_ENV: '"production"',
-          APP_VERSION: `"${appVersion}"`
-        }
-      }),
       new webpack.LoaderOptionsPlugin({
         minimize: true
       })
@@ -147,12 +176,7 @@ module.exports = (env, argv) => {
     config.mode = 'development';
     config.devtool = '#source-map';
     config.plugins = [
-      ...config.plugins,
-      new webpack.DefinePlugin({
-        'process.env': {
-          APP_VERSION: `"${appVersion}-dev"`
-        }
-      })
+      ...config.plugins
       //new BundleAnalyzerPlugin()
     ];
   }

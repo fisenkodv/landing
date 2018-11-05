@@ -8,14 +8,13 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "?build": "Run development build",
+    "?build": "echo \"Run development build\"",
     "build:prod": "webpack --mode=production",
     "?build:prod": "Run production build",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "webpack-dev-server --hot --watch --progress",
-    "?serve": "Run webpack dev server with watcher",
-    "start": "webpack --watch --output=build\\",
-    "?start": "Run webpack with watcher"
+    "?serve": "echo \"Run webpack dev server with watcher\"",
+    "start": "webpack --watch\\",
+    "?start": "echo \"Run webpack with watcher\""
   },
   "author": "Dmitry Fisenko",
   "license": "MIT",

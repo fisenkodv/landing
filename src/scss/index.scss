@@ -1,9 +1,11 @@
-@import './reset';
-@import './webfonts';
 @import './variables';
 
+@import './reset';
+@import './webfonts';
+
 /***** General Styles *****/
-html, body {
+html,
+body {
   font-size: 16px;
   line-height: 1;
   font-style: normal;
@@ -14,7 +16,9 @@ html, body {
   margin: 0;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 a {
@@ -52,7 +56,7 @@ main {
           line-height: 0;
           letter-spacing: 0.135rem;
           margin: -0.15rem 0 0 0;
-          padding: 0 0 0 25rem;
+          padding: 0 0 0 26rem;
           font-family: monospace;
           font-style: normal;
           font-weight: 400;
@@ -100,20 +104,20 @@ footer {
     font-size: 30px;
     transition: all 0.5s ease;
 
-    &.tw:hover {
+    &.twitter:hover {
       color: #1da1f2;
       transition: all 0.5s ease;
     }
-    &.fb:hover {
+    &.facebook:hover {
       color: #3b5998;
       transition: all 0.5s ease;
     }
-    &.ig:hover {
+    &.instagram:hover {
       color: #bd0f89;
       transition: all 0.5s ease;
     }
 
-    &.li:hover {
+    &.linkedin:hover {
       color: #1a85bc;
       transition: all 0.5s ease;
     }
