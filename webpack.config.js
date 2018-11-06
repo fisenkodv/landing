@@ -55,7 +55,7 @@ const config = {
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     historyApiFallback: true,
-    noInfo: true,
+    noInfo: false,
     hot: true,
     port: 9000
   },
@@ -85,7 +85,7 @@ const config = {
           {
             class: 'github',
             title: 'GitHub',
-            link: 'https://gitghub.com/fisenkodv'
+            link: 'https://github.com/fisenkodv'
           },
           {
             class: 'linkedin-in',
@@ -121,7 +121,7 @@ const config = {
       }
     }),
     new CopyWebpackPlugin(filesToCopy),
-    new CleanWebpackPlugin(['dist/*.*']),
+    new CleanWebpackPlugin(['dist']),
     new MiniCssExtractPlugin({
       filename: 'assets/[name].[hash].css',
       chunkFilename: 'assets/[id].[hash].css'
