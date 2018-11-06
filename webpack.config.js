@@ -73,7 +73,7 @@ const config = {
           meta: {
             author: 'Dmitry Fisenko',
             description: 'Dmitry Fisenko',
-            keywords: 'Dmitry Fisenko, developer, software, engineer, USA, NJ, .net, typescript, angular'
+            keywords: 'Dmitry Fisenko, developer, software, engineer'
           }
         },
         body: {
@@ -84,27 +84,27 @@ const config = {
         contacts: [
           {
             class: 'github',
-            title: 'Dmitry Fisenko on GitHub',
+            title: 'GitHub',
             link: 'https://gitghub.com/fisenkodv'
           },
           {
-            class: 'linkedin',
-            title: 'Dmitry Fisenko on LinkedIn',
+            class: 'linkedin-in',
+            title: 'LinkedIn',
             link: 'https://linkedin.com/in/fisenkodv'
           },
           {
             class: 'twitter',
-            title: 'Dmitry Fisenko on Twitter',
+            title: 'Twitter',
             link: 'https://twitter.com/fisenkodv'
           },
           {
-            class: 'facebook',
-            title: 'Dmitry Fisenko on Facebook',
+            class: 'facebook-f',
+            title: 'Facebook',
             link: 'https://facebook.com/fisenkodv'
           },
           {
             class: 'instagram',
-            title: 'Dmitry Fisenko on Instagram',
+            title: 'Instagram',
             link: 'https://instagram.com/fisenkodv'
           }
         ]
@@ -161,7 +161,7 @@ module.exports = (env, argv) => {
   console.log(`Version: ${appVersion}`);
   console.log('Output directory', config.output.path);
 
-  if (argv.module === 'production') {
+  if (argv.mode === 'production') {
     console.log('Build in prod mode');
     config.mode = 'production';
     config.devtool = '';
