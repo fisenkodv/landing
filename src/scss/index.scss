@@ -1,9 +1,10 @@
-@import './reset';
-@import './webfonts';
 @import './variables';
+@import './reset';
+@import './icons';
 
 /***** General Styles *****/
-html, body {
+html,
+body {
   font-size: 16px;
   line-height: 1;
   font-style: normal;
@@ -14,7 +15,9 @@ html, body {
   margin: 0;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 a {
@@ -97,23 +100,28 @@ footer {
   a {
     padding: 0 0.5rem;
     color: $text-color;
-    font-size: 30px;
+    font-size: 16px;
     transition: all 0.5s ease;
 
-    &.tw:hover {
+    &.github:hover {
+      color: #040204;
+      transition: all 0.5s ease;
+    }
+
+    &.twitter:hover {
       color: #1da1f2;
       transition: all 0.5s ease;
     }
-    &.fb:hover {
+    &.facebook-f:hover {
       color: #3b5998;
       transition: all 0.5s ease;
     }
-    &.ig:hover {
+    &.instagram:hover {
       color: #bd0f89;
       transition: all 0.5s ease;
     }
 
-    &.li:hover {
+    &.linkedin-in:hover {
       color: #1a85bc;
       transition: all 0.5s ease;
     }
@@ -149,7 +157,7 @@ footer {
     font-size: 1.5rem;
   }
   footer a {
-    font-size: 28px;
+    font-size: 22px;
   }
 }
 @media all and (max-width: 480px) {
@@ -162,6 +170,6 @@ footer {
     font-size: 1.6rem;
   }
   footer a {
-    font-size: 25px;
+    font-size: 20px;
   }
 }

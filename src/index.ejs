@@ -1,25 +1,24 @@
 <!DOCTYPE html>
-<html dir="ltr"
-      lang="en-US">
+<html dir="ltr" lang="en-US">
 
 <% const data = htmlWebpackPlugin.options.data %>
 <% include src/layout/head %>
 
-<body v="<%= data.version %>"
-      ts="<%= data.ts %>">
-    <main class="container">
-        <section class="content">
-            <h1>
-                <%= data.name %>
-            </h1>
-            <p><%= data.position %></p>
-            <a href="mailto:<%= data.email %>"
-               title="Email <%= data.name %>">Contact</a>
-        </section>
-    </main>
+<body>
+  <main class="container">
+    <section class="content">
+      <h1>
+        <%= data.body.name %>
+      </h1>
+      <p>
+        <%= data.body.position %>
+      </p>
+      <a href="mailto:<%= data.body.email %>" title="Email <%= data.body.name %>">Contact</a>
+    </section>
+  </main>
 
-    <% include src/layout/footer %>
-    <% include src/layout/ga %>
+  <% include src/layout/footer %>
+  <% include src/layout/ga %>
 </body>
 
 </html>
