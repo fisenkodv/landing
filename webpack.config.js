@@ -6,7 +6,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 filesToCopy = [
   { from: './src/scss/fontawesome/fonts', to: './assets/fonts', flatten: true },
@@ -126,25 +125,6 @@ const config = {
       filename: 'assets/[name].[hash].css',
       chunkFilename: 'assets/[id].[hash].css'
     })
-    /*new FaviconsWebpackPlugin({
-      logo: './src/assets/favicon.svg',
-      inject: true,
-      prefix: 'icons-[hash]/',
-      emitStats: true,
-      statsFilename: 'iconstats-[hash].json',
-      icons: {
-        android: false,
-        appleIcon: false,
-        appleStartup: false,
-        coast: false,
-        favicons: true,
-        firefox: true,
-        opengraph: false,
-        twitter: false,
-        yandex: false,
-        windows: true
-      }
-    })*/
   ]
 };
 
