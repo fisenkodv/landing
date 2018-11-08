@@ -1,5 +1,0 @@
-# References:
-# https://en.wikipedia.org/wiki/Robots.txt
-# https://support.google.com/webmasters/answer/1061943?hl=en
-
-User-agent: *
