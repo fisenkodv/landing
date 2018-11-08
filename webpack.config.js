@@ -6,7 +6,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 filesToCopy = [
   { from: './src/scss/fontawesome/fonts', to: './assets/fonts', flatten: true },
@@ -55,7 +54,7 @@ const config = {
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     historyApiFallback: true,
-    noInfo: true,
+    noInfo: false,
     hot: true,
     port: 9000
   },
@@ -85,7 +84,7 @@ const config = {
           {
             class: 'github',
             title: 'GitHub',
-            link: 'https://gitghub.com/fisenkodv'
+            link: 'https://github.com/fisenkodv'
           },
           {
             class: 'linkedin-in',
@@ -121,30 +120,11 @@ const config = {
       }
     }),
     new CopyWebpackPlugin(filesToCopy),
-    new CleanWebpackPlugin(['dist/*.*']),
+    new CleanWebpackPlugin(['dist']),
     new MiniCssExtractPlugin({
       filename: 'assets/[name].[hash].css',
       chunkFilename: 'assets/[id].[hash].css'
     })
-    /*new FaviconsWebpackPlugin({
-      logo: './src/assets/favicon.svg',
-      inject: true,
-      prefix: 'icons-[hash]/',
-      emitStats: true,
-      statsFilename: 'iconstats-[hash].json',
-      icons: {
-        android: false,
-        appleIcon: false,
-        appleStartup: false,
-        coast: false,
-        favicons: true,
-        firefox: true,
-        opengraph: false,
-        twitter: false,
-        yandex: false,
-        windows: true
-      }
-    })*/
   ]
 };
 
