@@ -7,10 +7,10 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 filesToCopy = [
   { from: './src/scss/fontawesome/fonts', to: './assets/fonts', flatten: true },
-  { from: './src/favicon.ico', to: './', flatten: true },
   { from: './src/*.txt', to: './', flatten: true }
 ];
 
@@ -130,7 +130,26 @@ const config = {
     new WorkboxPlugin.GenerateSW({
       clientsClaim: true,
       skipWaiting: true
-    })
+    }),
+    new FaviconsWebpackPlugin({
+      logo: "./src/assets/favicon.png",
+      inject: true,
+      prefix: "icons-[hash]/",
+      emitStats: true,
+      statsFilename: "iconstats-[hash].json",
+      icons: {
+        android: false,
+        appleIcon: true,
+        appleStartup: false,
+        coast: false,
+        favicons: true,
+        firefox: true,
+        opengraph: false,
+        twitter: false,
+        yandex: false,
+        windows: true
+      }
+    }),
   ]
 };
 
