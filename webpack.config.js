@@ -9,8 +9,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 
 filesToCopy = [
-  { from: './src/assets/favicon.ico', to: './', flatten: true },
   { from: './src/scss/fontawesome/fonts', to: './assets/fonts', flatten: true },
+  { from: './src/favicon.ico', to: './', flatten: true },
   { from: './src/*.txt', to: './', flatten: true }
 ];
 
