@@ -6,8 +6,10 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 filesToCopy = [
+  { from: './src/assets/favicon.ico', to: './', flatten: true },
   { from: './src/scss/fontawesome/fonts', to: './assets/fonts', flatten: true },
   { from: './src/*.txt', to: './', flatten: true }
 ];
@@ -124,6 +126,10 @@ const config = {
     new MiniCssExtractPlugin({
       filename: 'assets/[name].[hash].css',
       chunkFilename: 'assets/[id].[hash].css'
+    }),
+    new WorkboxPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true
     })
   ]
 };
