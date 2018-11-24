@@ -70,10 +70,10 @@ const config = {
       template: '!!ejs-compiled-loader!./src/index.ejs',
       data: {
         head: {
-          title: 'Dmitry Fisenko - Software Engineer',
+          title: 'Dmitry Fisenko',
           meta: {
             author: 'Dmitry Fisenko',
-            description: 'Dmitry Fisenko',
+            description: 'New Jersey based software engineer with 10+ years of experience in software development. Detail oriented with a passion for web development.',
             keywords: 'Dmitry Fisenko, developer, software, engineer'
           }
         },
