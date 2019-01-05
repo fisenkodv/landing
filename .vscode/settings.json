@@ -1,3 +1,6 @@
 {
-  "html.format.wrapAttributes": "auto"
+  "html.format.wrapAttributes": "auto",
+  "cSpell.words": [
+    "favicons"
+  ]
 }
