@@ -122,7 +122,7 @@ const config = {
       }
     }),
     new CopyWebpackPlugin(filesToCopy),
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'assets/[name].[hash].css',
       chunkFilename: 'assets/[id].[hash].css'
