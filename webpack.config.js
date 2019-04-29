@@ -97,16 +97,6 @@ const config = {
             class: 'twitter',
             title: 'Twitter',
             link: 'https://twitter.com/fisenkodv'
-          },
-          {
-            class: 'facebook-f',
-            title: 'Facebook',
-            link: 'https://facebook.com/fisenkodv'
-          },
-          {
-            class: 'instagram',
-            title: 'Instagram',
-            link: 'https://instagram.com/fisenkodv'
           }
         ]
       },
