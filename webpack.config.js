@@ -2,8 +2,8 @@ const path = require('path');
 const fs = require('fs');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
@@ -73,7 +73,8 @@ const config = {
           title: 'Dmitry Fisenko',
           meta: {
             author: 'Dmitry Fisenko',
-            description: 'New Jersey based software engineer with 10+ years of experience in software development. Detail oriented with a passion for web development.',
+            description:
+              'New Jersey based software engineer with 10+ years of experience in software development. Detail oriented with a passion for web development.',
             keywords: 'Dmitry Fisenko, developer, software, engineer'
           }
         },
@@ -122,11 +123,11 @@ const config = {
       skipWaiting: true
     }),
     new FaviconsWebpackPlugin({
-      logo: "./src/assets/favicon.png",
+      logo: './src/assets/favicon.png',
       inject: true,
-      prefix: "icons-[hash]/",
+      prefix: 'icons-[hash]/',
       emitStats: true,
-      statsFilename: "iconstats-[hash].json",
+      statsFilename: 'iconstats-[hash].json',
       icons: {
         android: false,
         appleIcon: true,
@@ -139,7 +140,7 @@ const config = {
         yandex: false,
         windows: true
       }
-    }),
+    })
   ]
 };
 
